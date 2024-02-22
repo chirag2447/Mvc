@@ -23,6 +23,11 @@ namespace Mvc.Controllers
             return View();
         }
 
+         public IActionResult AddStudent()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
