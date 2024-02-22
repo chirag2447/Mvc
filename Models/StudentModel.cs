@@ -14,10 +14,11 @@ namespace Mvc.Models
         public string? c_address {get;set;}
         public string[]? c_language {get;set;}
         public int c_course {get;set;}
-        public int? c_phone {get; set;}
+        public string? c_phone {get; set;}
         public string? c_profile {get;set;}
         
         public IFormFile? Photo {get;set;}
+        public string c_course_name{get;set;}
 
     }
 }
