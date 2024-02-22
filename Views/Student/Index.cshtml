@@ -1,0 +1,68 @@
+@* <li class="btn btn-info"> Hello @ViewBag.UserName</li>
+
+@model List<Mvc.Models.StudentModel>
+@* @inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor *@
+
+@* @{
+    ViewData["Title"] = "Students List";
+}
+<div class="container mt-5">
+    <h2>Students List</h2>
+    <a class="btn btn-primary" asp-action="Addstudent">Add new student </a>
+    <br>
+    <br>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Date of Birth</th>
+                <th>Gender</th>
+                <th>Address</th>
+                <th>Languages</th>
+                <th>Course</th>
+                <th>Profile Image</th>
+                <th>Phone</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var student in Model)
+            {
+                <tr>
+                    <td>@student.c_id</td>
+                    <td>@student.c_name</td>
+                    <td>@student.c_dob</td>
+                    <td>@student.c_gender</td>
+                    <td>@student.c_address</td>
+                    <td>@string.Join(", ", student.c_language)</td>
+                    <td>@student.c_course</td>
+                    <td>
+                        @if (student.c_profile != null && student.c_profile.Length > 0)
+                        {
+                            <img src="data:image/jpeg;base64,@student.c_profile" alt="Profile Image"
+                                style="max-width: 100px; max-height: 100px;" />
+                        }
+                    </td>
+                    <td>@student.c_phone</td>
+                    <td>
+                        <a href="@Url.Action("Edit", "Student", new { id = student.c_id })" class="btn btn-primary">Edit</a>
+                        <p> </p>
+                        <a href="@Url.Action("Delete", "Student", new { id = student.c_id })"
+                            class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <br>
+
+    <form method="post" asp-controller="User" asp-action="Login" id="logoutForm">
+        <button type="submit" class="btn btn-danger">Logout</button>
+    </form>
+</div>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+}  *@

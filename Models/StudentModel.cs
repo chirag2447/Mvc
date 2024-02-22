@@ -13,6 +13,7 @@ namespace Mvc.Models
         public string? c_gender {get;set;}
         public string? c_address {get;set;}
         public string[]? c_language {get;set;}
+        public int c_course {get;set;}
         public int? c_phone {get; set;}
         public string? c_profile {get;set;}
         
