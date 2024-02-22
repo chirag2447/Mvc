@@ -5,6 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Mvc.Models;
+using Mvc.Repositories;
 
 namespace Mvc.Controllers
 {
@@ -12,10 +14,11 @@ namespace Mvc.Controllers
     public class UserController : Controller
     {
         private readonly ILogger<UserController> _logger;
-
-        public UserController(ILogger<UserController> logger)
+        private readonly IUserRepository _userRepository;
+        public UserController(ILogger<UserController> logger, IUserRepository userRepository)
         {
             _logger = logger;
+            _userRepository = userRepository;
         }
 
         public IActionResult Index()
@@ -28,9 +31,41 @@ namespace Mvc.Controllers
             return View();
         }
 
+        [HttpPost]
+        public IActionResult Login(UserModel user)
+        {
+            if (_userRepository.Login(user))
+            {
+                return RedirectToAction("Index", "Student");
+            }
+            else
+            {
+                return View();
+            }
+
+        }
+
         public IActionResult Register()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Register(UserModel user)
+        {
+            if (!_userRepository.IsUser(user.c_email))
+            {
+
+                _userRepository.AddUser(user);
+
+            }
+            else
+            {
+                ViewBag.Message = "User already exists";
+                return View();
+
+            }
+            return RedirectToAction("Login");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
