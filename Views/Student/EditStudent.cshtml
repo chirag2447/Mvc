@@ -10,7 +10,8 @@
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body {
-      margin-bottom: 100px; /* Adjust as per your footer's height */
+      margin-bottom: 100px;
+      /* Adjust as per your footer's height */
     }
 
     .footer {
@@ -31,11 +32,12 @@
       <div class="col-md-8">
         <div class="card">
           <div class="card-header">
-           Update Student Information
+            Update Student Information
           </div>
           <div class="card-body">
-            <form action="AddStudent" method="post" enctype="multipart/form-data">
+            <form action="editstudent" method="post" enctype="multipart/form-data">
               <!-- Student Name -->
+              <input type="hidden" asp-for="c_id" />
               <div class="form-group">
                 <label for="c_name">Student Name</label>
                 <input type="text" asp-for="c_name" class="form-control" id="c_name" />

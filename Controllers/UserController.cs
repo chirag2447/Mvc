@@ -40,13 +40,14 @@ namespace Mvc.Controllers
             }
             else
             {
-                return View();
+                return Ok("wrong");
             }
 
         }
 
         public IActionResult Register()
         {
+            ViewBag.msg = null;
             return View();
         }
 
@@ -61,7 +62,7 @@ namespace Mvc.Controllers
             }
             else
             {
-                ViewBag.Message = "User already exists";
+                ViewBag.msg = "User already exists";
                 return View();
 
             }
