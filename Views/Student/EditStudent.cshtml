@@ -3,107 +3,139 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Edit Student</title>
-  <!-- Bootstrap CSS link -->
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    body {
-      margin-bottom: 100px; /* Adjust as per your footer's height */
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Student</title>
+    <!-- Bootstrap CSS link -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin-bottom: 100px;
+            /* Adjust as per your footer's height */
+            background: linear-gradient(to bottom right, #006400, #ffff00);
+            /* Dark Green to Yellow Gradient */
+        }
 
-    .footer {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      background-color: #f5f5f5;
-      padding: 20px 0;
-      text-align: center;
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #fff;
+            /* White */
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .card-header {
+            background-color: #022142; /* Dark Blue */
+            text-decoration: solid;
+            text-align: center;
+            color: #fff;  /* White */
+           
+        }
+
+        .btn-primary {
+            background-color: #28a745;
+            /* Green */
+            border-color: #28a745;
+            /* Green */
+        }
+
+        .btn-primary:hover {
+            background-color: #218838;
+            /* Darker Green */
+            border-color: #1e7e34;
+            /* Darker Green */
+        }
+        /* Bold and Black Labels */
+    .label {
+      color: #000000; /* Black color */
+      font-weight: bold; /* Bold font weight */
     }
-  </style>
+    </style>
 </head>
 
 <body>
 
-  <div class="container mt-5">
-    <div class="row justify-content-center">
-      <div class="col-md-8">
-        <div class="card">
-          <div class="card-header">
-           Update Student Information
-          </div>
-          <div class="card-body">
-            <form action="AddStudent" method="post" enctype="multipart/form-data">
-              <!-- Student Name -->
-              <div class="form-group">
-                <label for="c_name">Student Name</label>
-                <input type="text" asp-for="c_name" class="form-control" id="c_name" />
-              </div>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        Update Student Information
+                    </div>
+                    <div class="card-body">
+                        <form action="AddStudent" method="post" enctype="multipart/form-data">
+                            <!-- Student Name -->
+                            <div class="form-group">
+                                <label class="label" for="c_name">Student Name</label>
+                                <input type="text" asp-for="c_name" class="form-control" id="c_name" />
+                            </div>
 
-              <!-- Date of Birth -->
-              <div class="form-group">
-                <label for="c_dob">Date of Birth</label>
-                <input type="date" asp-for="c_dob" class="form-control" id="c_dob" />
-              </div>
+                            <!-- Date of Birth -->
+                            <div class="form-group">
+                                <label class="label" for="c_dob">Date of Birth</label>
+                                <input type="date" asp-for="c_dob" class="form-control" id="c_dob" />
+                            </div>
 
-              <div class="form-group">
-                <label>Gender:</label><br>
-                <input type="radio" asp-for="c_gender" value="male" checked>
-                <label>Male</label><br>
-                <input type="radio" asp-for="c_gender" value="female">
-                <label>Female</label>
-              </div>
+                            <div class="form-group">
+                                <label class="label">Gender:</label><br>
+                                <input type="radio" asp-for="c_gender" value="male" checked>
+                                <label>Male</label><br>
+                                <input type="radio" asp-for="c_gender" value="female">
+                                <label>Female</label>
+                            </div>
 
-              <!-- Address -->
-              <div class="form-group">
-                <label for="c_address">Address</label>
-                <textarea class="form-control" asp-for="c_address" id="c_address" rows="3"></textarea>
-              </div>
+                            <!-- Address -->
+                            <div class="form-group">
+                                <label class="label" for="c_address">Address</label>
+                                <textarea class="form-control" asp-for="c_address" id="c_address" rows="3"></textarea>
+                            </div>
 
-              <!-- Language -->
-              <div class="form-group">
-                <label for="c_language">Languages:</label>
-                <select asp-for="c_language" class="form-control" multiple>
-                  <option value="English">English</option>
-                  <option value="Marathi">Marathi</option>
-                  <option value="Gujarati">Gujarati</option>
-                  <option value="Hindi">Hindi</option>
-                </select>
-              </div>
+                            <!-- Language -->
+                            <div class="form-group">
+                                <label class="label" for="c_language">Languages:</label>
+                                <select asp-for="c_language" class="form-control" multiple>
+                                    <option value="English">English</option>
+                                    <option value="Marathi">Marathi</option>
+                                    <option value="Gujarati">Gujarati</option>
+                                    <option value="Hindi">Hindi</option>
+                                </select>
+                            </div>
 
-              <!-- Course -->
-              <div class="form-group">
-                <label for="c_course">Course:</label>
-                <select asp-for="c_course" asp-items="ViewBag.Courses" class="form-control">
-                  <option value="" selected disabled>Select a course</option>
-                </select>
-              </div>
+                            <!-- Course -->
+                            <div class="form-group">
+                                <label class="label" for="c_course">Course:</label>
+                                <select asp-for="c_course" asp-items="ViewBag.Courses" class="form-control">
+                                    <option value="" selected disabled>Select a course</option>
+                                </select>
+                            </div> 
 
-              <div class="form-group">
-                <label for="c_phone">Phone:</label>
-                <input type="text" asp-for="c_phone" class="form-control" value="111-222-3333" />
-              </div>
-              <div class="form-group">
-                <label for="Profile">Photo:</label>
-                <input type="file" asp-for="Photo" class="form-control" />
-              </div>
+                            <div class="form-group">
+                                <label class="label" for="c_phone">Phone:</label>
+                                <input type="text" asp-for="c_phone" class="form-control" value="111-222-3333" />
+                            </div>
+                            <div class="form-group">
+                                <label class="label" for="Profile">Photo:</label>
+                                <input type="file" asp-for="Photo" class="form-control" />
+                            </div>
 
-              <!-- Submit Button -->
-              <input type="submit" class="btn btn-primary" value="Submit">
-            </form>
-          </div>
+
+                            <!-- Submit Button -->
+                            <div class="form-group text-center">
+                                <button type="submit" class="btn btn-dark">Update</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 
-
-
-  <!-- Bootstrap JS scripts (make sure to include jQuery and Popper.js) -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- Bootstrap JS scripts (make sure to include jQuery and Popper.js) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 </body>
 
