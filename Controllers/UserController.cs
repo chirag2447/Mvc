@@ -8,7 +8,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Mvc.Controllers
 {
-    
+
     public class UserController : Controller
     {
         private readonly ILogger<UserController> _logger;
@@ -19,6 +19,16 @@ namespace Mvc.Controllers
         }
 
         public IActionResult Index()
+        {
+            return View();
+        }
+
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        public IActionResult Register()
         {
             return View();
         }
