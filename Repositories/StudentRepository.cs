@@ -8,7 +8,7 @@ public class StudentRepository : IStudentRepository
     private NpgsqlConnection conn;
     public StudentRepository(IConfiguration config)
     {
-        conn = new NpgsqlConnection(config.GetConnectionString("A"));
+        conn = new NpgsqlConnection(config.GetConnectionString("GroupA"));
     }
 
 
