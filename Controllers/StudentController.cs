@@ -30,6 +30,7 @@ namespace Mvc.Controllers
             }
             var students = _studentRepository.GetStudents();
             return View(students);
+
         }
 
         public IActionResult AddStudent()
@@ -37,6 +38,7 @@ namespace Mvc.Controllers
             var courses = _studentRepository.GetCourses();
             ViewBag.Courses = new SelectList(courses, "c_id", "c_name");
             return View();
+
         }
 
         [HttpPost]
